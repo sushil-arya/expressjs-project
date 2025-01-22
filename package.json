@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "name": "expressjsproject",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sushil-arya/expressjs-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sushil-arya/expressjs-project/issues"
+  },
+  "homepage": "https://github.com/sushil-arya/expressjs-project#readme",
+  "description": ""
+}
