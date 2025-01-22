@@ -11,4 +11,18 @@ app.post('/hello', function (req, res) {
   });
 });
 
+app.post('/hello2', function (req, res) {
+  res.json({
+    message: 'Hello, World!',
+    "status": 200
+  });
+});
+
+app.post('/hello3', function (req, res) {
+  res.status(202).json({
+    message: 'Hello, World!',
+    "status": 202
+  });
+});
+
 app.listen(5000);
