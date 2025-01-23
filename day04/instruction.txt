@@ -1,0 +1,273 @@
+20-01-2025
+
+To get started with expressjs
+==========================
+npm version (8.11.0)
+node version (16.16.0)
+
+
+Project Folder
+1. make server.js file
+
+2. git init
+3. git remote add origin url
+
+4. npm init -y (pass project-related details)
+
+6. npm i express@4.18.1 --location=global
+
+7. npm i nodemon@2.0.19 --location=global
+
+8. git push origin master
+
+================================
+git rm -r --cached node_modules
+
+=================================
+
+
+server.js
+==================
+
+const express = require('express')
+const app = express()
+
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
+
+app.listen(5000)
+
+
+git init
+git remote add origin [url]
+git add .
+git commit -m "msg here"
+git push origin master
+
+
+git touch .gitignore
+===================
+
+node_modules
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Day#2
+Type of request
+
+1. GET   (Limited Data)
+
+2. POST  (Unlimited Data)
+
+app.get(string, function)
+
+app.get('/',function(req,res){
+
+	res.send("Hello world");
+})
+
+
+app.post('/h2',function(req,res){
+	res.send("Hello world again");
+})
+
+
+app.post('/h3', function(req,res){
+	res.status(202).json({
+		"message" : "Hello world from json",
+		"status"  : 202
+	})
+})
+
+
++++++++++++++++++++++++++++++++++
+
+Day#3
+
+npm init -y
+
+Monolithic architecture 
+======================
+is a traditional software development model that uses a single code base,
+
+Features: A single code base that performs multiple business functions 
+
+Advantages: Business flow is visible, code reuse, simpler deployment strategy 
+
+Disadvantages: Can be complex and difficult to manage as a business grows 
+
+---------------------------
+
+Microservices architecture 
+=========================
+breaks the application into smaller, independent services
+
+Features: Smaller, independent services that communicate with each other through APIs 
+
+Advantages: Increased agility and scalability, improved fault tolerance, easier to maintain 
+
+Disadvantages: Higher initial investment in development and infrastructure 
+
+--------------------------
+
+
+
+QueryString:
+
+hostname:port/routname?querysting1=value1&querysting2=value2
+
+localhost:5000/hello?name=sushil&surname=arya
+
+app.post('/h2',(req,res)=>{
+console(req.query) query + computer environment list
+console(req.query.name)
+console(req.query.surname)
+
+res.status(202).json({
+					'msg' : 'Hello World again',
+					'data' : req.query
+})
+
+}
+
+
++++++++++++++++++++++++++++++++++
+
+Day#4
+
+get and post 2048 characters limit
+
+3 ways we can send data 
+
+1. querystring (GET)
+
+localhost:port/route?querystring1=value1&querystring2=value2
+
+2. JSON body (POST)
+
+JSON object
+		{
+			key:value,
+		}
+
+Postman
+
+		POST>BODY>ROW>JSON
+
+3. URL segment
+
+
+
+
+-------------------------------------------------------
+
+1. npm init -y
+2. main= index.js
+ 
+
+
+3. add this start script inside the package.json
+==========================================
+"scripts": {
+    "start" : "node ./index.js"
+
+}
+
+"start" : "node ./index.js"
+
+or 
+if 3rd party nodemon is installed globally
+
+up and running server
+
+"start" : "nodemon ./index.js"
+
+
+4. npm i express@4.18.1
+
+5. in index.js
+
+cont express = require('express')
+const app = express()
+
+require('dotenv').config()
+
+
+
+
+--------------------------------
+
+
+3rd party .env or dotenv install @16.0.1
+
+
+npm i dotenv@16.0.1
+
+.env
+
+index.js
+========
+require('dotenv').config()
+
+console.log(process.env)
+
+let PORT = process.env.PORTNO;
+
+app.listen(PORT,()=>{
+
+	console.log(`the server is running on port $(PORT)`)
+})
+
+
+3 types of environment
+
+local
+
+on internet
+testing
+production 
+
+
+
+1. URL segments / data / payload
+-------------------------------------------------
+console.log(req.params);
+localhost:5000/students/:std1
+
+hostname:port/route/:variable
+
+
+2. query string payload/data
+---------------------------------------------------
+console.log(req.query);
+
+hostname:port/route?user=name&lastname=abc
+
+
+
+3. data in the form of JSON payload
+-------------------------------------------------------
+req.body
+
+
+
+const express=require('express');
+
+const app=express();
+
+require('dotenv').config();
+
+app.get('/student/:std1',function(req,res){
+
+  console.log(req.params.std1);
+  let std1 = req.params.std1;
+  //res.send(`Hello, This is Student ${std1}`);
+  res.json({std1: std1});
+});
+
+
+const PORT = process.env.PORTNO;
+app.listen(PORT,function(){
+  console.log(`Server is running on port ${PORT}`);
+});
