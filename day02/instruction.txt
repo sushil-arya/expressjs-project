@@ -1,0 +1,84 @@
+20-01-2025
+
+To get started with expressjs
+==========================
+npm version (8.11.0)
+node version (16.16.0)
+
+
+Project Folder
+1. make server.js file
+
+2. git init
+3. git remote add origin url
+
+4. npm init -y (pass project-related details)
+
+6. npm i express@4.18.1 --location=global
+
+7. npm i nodemon@2.0.19 --location=global
+
+8. git push origin master
+
+================================
+git rm -r --cached node_modules
+
+=================================
+
+
+server.js
+==================
+
+const express = require('express')
+const app = express()
+
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
+
+app.listen(5000)
+
+
+git init
+git remote add origin [url]
+git add .
+git commit -m "msg here"
+git push origin master
+
+
+git touch .gitignore
+===================
+
+node_modules
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Day#2
+Type of request
+
+1. GET   (Limited Data)
+
+2. POST  (Unlimited Data)
+
+app.get(string, function)
+
+app.get('/',function(req,res){
+
+	res.send("Hello world");
+})
+
+
+app.post('/h2',function(req,res){
+	res.send("Hello world again");
+})
+
+
+app.post('/h3', function(req,res){
+	res.status(202).json({
+		"message" : "Hello world from json",
+		"status"  : 202
+	})
+})
+
+
++++++++++++++++++++++++++++++++++
